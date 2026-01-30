@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dbvfpwmuffa4d" path="res://assets/butt.png" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://jn8jqrdc3hj" path="res://assets/fart.png" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://ddi6ipflkfv8c" path="res://assets/background.png" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://c0ilvyxv6lmnr" path="res://assets/mask.png" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://dhx2vskx3fu0j" path="res://scripts/mask.gd" id="7_u5sy4"]
 
 [node name="Game" type="Node2D" unique_id=1918586694]
 script = ExtResource("1_uwrxv")
@@ -26,10 +28,16 @@ position = Vector2(596, 342)
 scale = Vector2(0.52351487, 0.5)
 texture = ExtResource("4_lbhrr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=398184542]
+[node name="Background" type="Sprite2D" parent="Visuals" unique_id=398184542]
 z_index = -1
 position = Vector2(552, 284)
 texture = ExtResource("5_iywne")
+
+[node name="Mask" type="Sprite2D" parent="Visuals" unique_id=1697141931]
+position = Vector2(223, 980.0001)
+scale = Vector2(0.4273098, 0.5033966)
+texture = ExtResource("6_p57ef")
+script = ExtResource("7_u5sy4")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1954000236]
 
@@ -50,6 +58,7 @@ offset_bottom = 605.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "X / Y"
+horizontal_alignment = 1
 
 [node name="InstructionLabel" type="Label" parent="UI" unique_id=1488783823]
 offset_left = 430.0
@@ -59,6 +68,7 @@ offset_bottom = 567.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Press X to avoid the fart!"
+horizontal_alignment = 1
 
 [node name="ResultLabel" type="Label" parent="UI" unique_id=1141381911]
 offset_left = 477.0
