@@ -15,6 +15,10 @@ run/main_scene="uid://dpgamsx00ls7m"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioPlayer="*uid://cjyri588g41xq"
+
 [input]
 
 press_x={
