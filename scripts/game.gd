@@ -22,6 +22,9 @@ var running := true
 @onready var face: Sprite2D = $Visuals/Face
 
 @onready var face_animation_player: AnimationPlayer = $Visuals/FaceAnimationPlayer
+@onready var restart_animation_player: AnimationPlayer = $UI/RestartAnimationPlayer
+
+@onready var mask: Sprite2D = $Visuals/Mask
 
 func _ready():
 	update_ui_labels()
@@ -44,6 +47,8 @@ func _process(delta):
 
 func _input(event):
 	if not running:
+		if event.is_action_pressed("press_enter"):
+			restart_game()
 		return
 
 	if event.is_action_pressed("press_x"):
@@ -60,14 +65,34 @@ func update_ui_labels():
 	if press_label:
 		press_label.text = "%d / %d" % [press_count, REQUIRED_PRESSES]
 
+func restart_game():
+	press_count = 0
+	time_left = TIME_LIMIT
+	running = true
+
+	fart.visible = false
+	face.visible = true
+	result_label.text = ""
+	
+	if face_animation_player.is_playing():
+		face_animation_player.stop()
+	if restart_animation_player.is_playing():
+		restart_animation_player.play("disappear")
+		
+	mask.set_initial_position()
+	
+	update_ui_labels()
+
 func on_win():
 	result_label.text = "✅ YOU WIN! ✅"
 	fart.visible = true
 	face.visible = false
+	restart_animation_player.play("flash")
 	emit_signal("win")
 
 func on_lose():
 	result_label.text = "❌ LOSER! ❌"
 	fart.visible = true
 	face_animation_player.play("die")
+	restart_animation_player.play("flash")
 	emit_signal("lose")

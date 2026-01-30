@@ -3,7 +3,7 @@ extends Node2D
 @onready var game := get_tree().current_scene
 @onready var face: Sprite2D = $"../Face"
 
-const START_Y := 900.0
+const START_Y := 920.0
 
 var end_y
 var steps
@@ -27,3 +27,6 @@ func lift_mask():
 
 	if position.y < end_y:
 		position.y = end_y
+
+func set_initial_position():
+	position.y = START_Y
