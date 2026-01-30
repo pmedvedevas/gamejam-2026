@@ -47,6 +47,7 @@ func _input(event):
 		return
 
 	if event.is_action_pressed("press_x"):
+		#AudioPlayer.play_sfx("click")
 		press_count += 1
 		update_ui_labels()
 
