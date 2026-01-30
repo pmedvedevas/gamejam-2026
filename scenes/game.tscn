@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dbvfpwmuffa4d" path="res://assets/butt.png" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://jn8jqrdc3hj" path="res://assets/fart.png" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://ddi6ipflkfv8c" path="res://assets/background.png" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://tn061onf1iva" path="res://assets/background_explosion.png" id="6_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://c0ilvyxv6lmnr" path="res://assets/mask.png" id="6_p57ef"]
-[ext_resource type="Script" uid="uid://dhx2vskx3fu0j" path="res://scripts/mask.gd" id="7_u5sy4"]
+[ext_resource type="Script" path="res://scripts/mask.gd" id="7_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://vhm2lxd4k23r" path="res://assets/dead.png" id="8_gee14"]
 
 [sub_resource type="Animation" id="Animation_0tnpc"]
@@ -161,6 +162,12 @@ position = Vector2(596, 342)
 scale = Vector2(0.52351487, 0.5)
 texture = ExtResource("4_lbhrr")
 
+[node name="BackgroundExplosion" type="Sprite2D" parent="Visuals" unique_id=882740511]
+z_index = -1
+position = Vector2(489.07483, 239.75)
+scale = Vector2(0.65209323, 0.6520933)
+texture = ExtResource("6_0tnpc")
+
 [node name="Background" type="Sprite2D" parent="Visuals" unique_id=398184542]
 z_index = -1
 position = Vector2(552, 284)
@@ -171,6 +178,12 @@ position = Vector2(223, 980.0001)
 scale = Vector2(0.4273098, 0.5033966)
 texture = ExtResource("6_p57ef")
 script = ExtResource("7_u5sy4")
+
+[node name="ColorRect" type="ColorRect" parent="Visuals" unique_id=1455981526]
+z_index = -1
+offset_right = 1277.0
+offset_bottom = 716.0
+color = Color(1, 0.7490196, 0.003921569, 1)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1954000236]
 
