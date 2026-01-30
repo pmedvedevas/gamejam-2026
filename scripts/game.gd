@@ -21,6 +21,8 @@ var running := true
 @onready var fart: Sprite2D = $Visuals/Fart
 @onready var face: Sprite2D = $Visuals/Face
 
+@onready var face_animation_player: AnimationPlayer = $Visuals/FaceAnimationPlayer
+
 func _ready():
 	update_ui_labels()
 
@@ -66,4 +68,5 @@ func on_win():
 func on_lose():
 	result_label.text = "❌ LOSER! ❌"
 	fart.visible = true
+	face_animation_player.play("die")
 	emit_signal("lose")

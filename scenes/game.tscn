@@ -7,6 +7,59 @@
 [ext_resource type="Texture2D" uid="uid://ddi6ipflkfv8c" path="res://assets/background.png" id="5_iywne"]
 [ext_resource type="Texture2D" uid="uid://c0ilvyxv6lmnr" path="res://assets/mask.png" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://dhx2vskx3fu0j" path="res://scripts/mask.gd" id="7_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://vhm2lxd4k23r" path="res://assets/dead.png" id="8_gee14"]
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_lnu2h")]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_gee14")]
+}
+
+[sub_resource type="Animation" id="Animation_kvpfn"]
+resource_name = "live"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_lnu2h")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dinhu"]
+_data = {
+&"RESET": SubResource("Animation_0tnpc"),
+&"die": SubResource("Animation_vtaks"),
+&"live": SubResource("Animation_kvpfn")
+}
 
 [node name="Game" type="Node2D" unique_id=1918586694]
 script = ExtResource("1_uwrxv")
@@ -17,6 +70,9 @@ script = ExtResource("1_uwrxv")
 position = Vector2(215, 308)
 scale = Vector2(0.87567574, 0.7450533)
 texture = ExtResource("2_lnu2h")
+
+[node name="FaceAnimationPlayer" type="AnimationPlayer" parent="Visuals" unique_id=252142955]
+libraries/ = SubResource("AnimationLibrary_dinhu")
 
 [node name="Butt" type="Sprite2D" parent="Visuals" unique_id=1220192690]
 position = Vector2(970, 318)
