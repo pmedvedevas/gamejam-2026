@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dpgamsx00ls7m"]
+
+[ext_resource type="Script" uid="uid://lpsmjybijt2n" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://dat7hiofdrcn4" path="res://assets/face.png" id="2_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://dbvfpwmuffa4d" path="res://assets/butt.png" id="3_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://jn8jqrdc3hj" path="res://assets/fart.png" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://ddi6ipflkfv8c" path="res://assets/background.png" id="5_iywne"]
+
+[node name="Game" type="Node2D" unique_id=1918586694]
+script = ExtResource("1_uwrxv")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1242763456]
+
+[node name="Face" type="Sprite2D" parent="Visuals" unique_id=603230960]
+position = Vector2(215, 308)
+scale = Vector2(0.87567574, 0.7450533)
+texture = ExtResource("2_lnu2h")
+
+[node name="Butt" type="Sprite2D" parent="Visuals" unique_id=1220192690]
+position = Vector2(970, 318)
+texture = ExtResource("3_lbhrr")
+
+[node name="Fart" type="Sprite2D" parent="Visuals" unique_id=301606915]
+visible = false
+position = Vector2(596, 342)
+scale = Vector2(0.52351487, 0.5)
+texture = ExtResource("4_lbhrr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=398184542]
+z_index = -1
+position = Vector2(552, 284)
+texture = ExtResource("5_iywne")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1954000236]
+
+[node name="TimerLabel" type="Label" parent="UI" unique_id=745904887]
+offset_left = 544.0
+offset_top = 25.0
+offset_right = 659.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Timer"
+
+[node name="PressLabel" type="Label" parent="UI" unique_id=392290548]
+offset_left = 554.0
+offset_top = 563.0
+offset_right = 624.0
+offset_bottom = 605.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "X / Y"
+
+[node name="InstructionLabel" type="Label" parent="UI" unique_id=1488783823]
+offset_left = 430.0
+offset_top = 513.0
+offset_right = 793.0
+offset_bottom = 567.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Press X to avoid the fart!"
+
+[node name="ResultLabel" type="Label" parent="UI" unique_id=1141381911]
+offset_left = 477.0
+offset_top = 111.0
+offset_right = 759.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 27
+text = "Will you be farted on?"
