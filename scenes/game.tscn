@@ -4,15 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://dat7hiofdrcn4" path="res://assets/face.png" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://dbvfpwmuffa4d" path="res://assets/butt.png" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://jn8jqrdc3hj" path="res://assets/fart.png" id="4_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://blfasr1ero26i" path="res://assets/background_explosion.png" id="6_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://tn061onf1iva" path="res://assets/background_explosion.png" id="6_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bxvvsjony5uf8" path="res://assets/new_assets/mask/mask.png" id="6_dinhu"]
 [ext_resource type="Texture2D" uid="uid://b8y4yylq0gro" path="res://assets/new_assets/fart/fart_regular.png" id="6_kvuet"]
 [ext_resource type="Script" uid="uid://dhx2vskx3fu0j" path="res://scripts/mask.gd" id="7_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://vhm2lxd4k23r" path="res://assets/dead.png" id="8_gee14"]
 [ext_resource type="Texture2D" uid="uid://we3f76dv8fvf" path="res://assets/new_assets/background/Desktop - 3.png" id="10_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dkjllr1ac1i1a" path="res://assets/new_assets/background/Desktop - 5.png" id="10_vtaks"]
-[ext_resource type="Texture2D" uid="uid://cfgrjxslggyww" path="res://assets/new_assets/background/Group 4.png" id="11_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://c01l0gjc2rymq" path="res://assets/new_assets/background/Press X To Avoid Fart.png" id="12_dinhu"]
+[ext_resource type="Script" path="res://scripts/timing_meter.gd" id="14_trtic"]
+[ext_resource type="Texture2D" uid="uid://b17ub0uqlsa21" path="res://assets/under.png" id="15_ca42v"]
+[ext_resource type="Texture2D" uid="uid://h23cuno7ah3k" path="res://assets/arrow.png" id="16_ca42v"]
+[ext_resource type="Texture2D" uid="uid://0prxd5bi0jn6" path="res://assets/progress.png" id="16_rysoc"]
 
 [sub_resource type="Animation" id="Animation_0tnpc"]
 length = 0.001
@@ -238,7 +241,6 @@ theme_override_constants/separation = 40
 layout_mode = 2
 
 [node name="TimerLabel" type="Label" parent="UI/TimerVBoxContainer" unique_id=1402295979]
-visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0.039215688, 1)
 theme_override_fonts/font = SubResource("SystemFont_0tnpc")
@@ -261,7 +263,6 @@ theme_override_constants/separation = 140
 layout_mode = 2
 
 [node name="ResultLabel" type="Label" parent="UI/ResultVBoxContainer" unique_id=1834122964]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_0tnpc")
 theme_override_font_sizes/font_size = 25
@@ -341,8 +342,26 @@ text = "X / Y"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Group4" type="Sprite2D" parent="." unique_id=1837519071]
-z_index = 1
-position = Vector2(1212, 349)
-scale = Vector2(0.13773966, 0.13773966)
-texture = ExtResource("11_kvpfn")
+[node name="TimingMeter" type="Control" parent="." unique_id=42661312]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 104.0
+offset_top = 154.0
+offset_right = 808.0
+offset_bottom = 277.0
+script = ExtResource("14_trtic")
+
+[node name="Bar" type="TextureProgressBar" parent="TimingMeter" unique_id=240260763]
+layout_mode = 1
+offset_right = 720.0
+offset_bottom = 120.0
+value = 20.0
+fill_mode = 6
+texture_under = ExtResource("15_ca42v")
+texture_progress = ExtResource("16_rysoc")
+
+[node name="Arrow" type="TextureRect" parent="TimingMeter" unique_id=1140612738]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_ca42v")

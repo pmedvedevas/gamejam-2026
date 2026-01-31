@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var game := get_tree().current_scene
 @onready var face: Sprite2D = $"../Face"
+@onready var timing_meter = $"../../TimingMeter"
 
 const START_Y := 920.0
 
@@ -23,7 +24,7 @@ func calculate_steps():
 	step_size = total_distance / float(steps)
 
 func _input(event):
-	if event.is_action_pressed("press_x"):
+	if event.is_action_pressed("press_x") and timing_meter.is_good_timing():
 		lift_mask()
 
 func lift_mask():

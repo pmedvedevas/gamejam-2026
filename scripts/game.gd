@@ -32,6 +32,7 @@ var state := GameState.PLAYING
 
 @onready var face_animation_player: AnimationPlayer = $Visuals/FaceAnimationPlayer
 @onready var restart_animation_player: AnimationPlayer = $UI/RestartVBoxContainer/RestartAnimationPlayer
+@onready var timing_meter = $TimingMeter
 
 @onready var mask: Sprite2D = $Visuals/Mask
 
@@ -57,10 +58,11 @@ func _input(event):
 	match state:
 		GameState.PLAYING:
 			if event.is_action_pressed("press_x"):
-				press_count += 1
-				update_ui_labels()
-				if press_count >= required_presses:
-					on_win()
+				if timing_meter.is_good_timing():
+					press_count += 1
+					update_ui_labels()
+					if press_count >= required_presses:
+						on_win()
 		GameState.WAITING_NEXT:
 			if event.is_action_pressed("press_z"):
 				next_level()
