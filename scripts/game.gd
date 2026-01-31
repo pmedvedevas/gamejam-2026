@@ -21,7 +21,7 @@ enum GameState {
 
 var state := GameState.PLAYING
 
-@onready var timer_label: Label = $UI/TimerVBoxContainer/TimerLabel
+@onready var timer_label: Label = $UI/TimerVBoxContainer/HBoxContainer/TimerLabel
 @onready var result_label: Label = $UI/ResultVBoxContainer/ResultLabel
 @onready var restart_label: Label = $UI/RestartVBoxContainer/RestartLabel
 @onready var instruction_label: Label = $UI/InstructionsVBoxContainer/InstructionLabel
