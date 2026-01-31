@@ -1,5 +1,8 @@
 extends Node2D
 
+signal throbbing_countdown
+
+
 signal win
 signal lose
 signal update_ui(presses: int, required: int, time_left: float)
@@ -35,9 +38,14 @@ var state := GameState.PLAYING
 @onready var timing_meter = $TimingMeter
 
 @onready var mask: Sprite2D = $Visuals/Mask
+@onready var butt: Sprite2D = $Visuals/Butt
+
+
+
 
 func _ready():
 	update_ui_labels()
+	reset_all()
 
 func _process(delta):
 	if state != GameState.PLAYING:
@@ -53,6 +61,19 @@ func _process(delta):
 		return
 
 	update_ui_labels()
+
+
+func set_throbbing_timer():
+	var timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 2.0
+	timer.one_shot = true
+	timer.timeout.connect(throbbing_emit)
+	timer.start()
+
+func throbbing_emit():
+	print("Enabling THROBBING!")
+	emit_signal("throbbing_countdown") # custom signal for external use
 
 func _input(event):
 	match state:
@@ -92,6 +113,8 @@ func restart_game():
 	mask.set_initial_position()
 
 	update_ui_labels()
+	reset_all()
+	
 
 func on_win():
 	state = GameState.WAITING_NEXT
@@ -100,6 +123,7 @@ func on_win():
 	fart.visible = true
 	restart_animation_player.play("flash")
 	emit_signal("win")
+	
 
 func on_lose():
 	state = GameState.DEAD
@@ -110,6 +134,8 @@ func on_lose():
 	mask.visible = false
 	restart_animation_player.play("flash")
 	emit_signal("lose")
+	reset_all()
+	
 
 func start_level():
 	press_count = 0
@@ -120,6 +146,7 @@ func start_level():
 	mask.set_initial_position()
 	mask.calculate_steps()
 	update_ui_labels()
+	
 
 func next_level():
 	level += 1
@@ -128,3 +155,9 @@ func next_level():
 	restart_label.text = ""
 	result_label.text = ""
 	start_level()
+	reset_all()
+	
+func reset_all():
+	butt.reset_all()
+	set_throbbing_timer()
+	
