@@ -21,10 +21,7 @@ var explosion_size_tween
 
 func _ready() -> void:
 	# Set timer connection to game
-	game.throbbing_countdown.connect(_on_throbing_countdown)
-	game.almost_explode_countdown.connect(_on_almost_explode_countdown)
-	
-	start_but_movement()
+	reset_all()
 
 func start_but_movement():
 	# Move this node to (400, 400) over 1 second
@@ -40,10 +37,6 @@ func but_throbbing() -> void:
 	but_explosion_visual.visible = true
 	
 	explosion_movement_tween = create_tween()
-	#tween.tween_property(but_explosion_visual, "visible", !but_explosion_visual.visible, 0.5)
-	#tween.tween_property(but_explosion_visual, "visible", !but_explosion_visual.visible, 0.5)
-	#tween.set_loops()
-	
 	explosion_movement_tween.tween_property(but_explosion_visual, "modulate:a", 0.0, 0) # Fade out in 0.5 seconds
 	explosion_movement_tween.tween_interval(0.2)                           # Stay invisible for 0.2s
 	explosion_movement_tween.tween_property(but_explosion_visual, "modulate:a", 1.0, 0)  # Fade in in 0.5 seconds
@@ -124,23 +117,21 @@ func reset_starting_values():
 	
 	but_explosion_visual.modulate.b = 1
 	but_explosion_visual.modulate.g = 1
+	but_explosion_visual.scale = Vector2(0.53,0.53)
 	
 	self.scale = Vector2(1.2, 1.1)
 	self.rotation = 0.349
 	self.position = Vector2(134.0,851.0)
 	
 func reset_all():
-	reset_starting_values()
-
-	if explosion_movement_tween:
-		explosion_movement_tween.kill()
-		
+	kill_all_tweens()
+	
 	game.throbbing_countdown.connect(_on_throbing_countdown)
+	game.almost_explode_countdown.connect(_on_almost_explode_countdown)
+	
 	start_but_movement()
 	
 func kill_all_tweens():
-	reset_starting_values()
-	
 	if explosion_movement_tween:
 		explosion_movement_tween.kill()
 		
@@ -158,3 +149,6 @@ func kill_all_tweens():
 		
 	if but_size_tween:
 		but_size_tween.kill()
+		
+	reset_starting_values()
+	
