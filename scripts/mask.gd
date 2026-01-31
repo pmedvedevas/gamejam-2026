@@ -11,7 +11,8 @@ var total_distance
 var step_size
 
 func _ready():
-	end_y = face.transform.get_origin()[1]
+	#end_y = face.transform.get_origin()[1]
+	end_y = 400 # Temporary hardcoded value :)
 	position.y = START_Y
 	steps = game.REQUIRED_PRESSES
 	total_distance = START_Y - end_y

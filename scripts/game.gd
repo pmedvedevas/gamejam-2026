@@ -74,11 +74,9 @@ func restart_game():
 	face.visible = true
 	result_label.text = ""
 	
-	if face_animation_player.is_playing():
-		face_animation_player.stop()
-	if restart_animation_player.is_playing():
-		restart_animation_player.play("disappear")
-		
+	face_animation_player.play("live")
+	restart_animation_player.play("disappear")
+	
 	mask.set_initial_position()
 	
 	update_ui_labels()
@@ -86,7 +84,7 @@ func restart_game():
 func on_win():
 	result_label.text = "✅ YOU WIN! ✅"
 	fart.visible = true
-	face.visible = false
+	#face.visible = false
 	restart_animation_player.play("flash")
 	emit_signal("win")
 
@@ -94,5 +92,6 @@ func on_lose():
 	result_label.text = "❌ LOSER! ❌"
 	fart.visible = true
 	face_animation_player.play("die")
+	mask.visible = false
 	restart_animation_player.play("flash")
 	emit_signal("lose")

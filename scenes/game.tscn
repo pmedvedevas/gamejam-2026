@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ddi6ipflkfv8c" path="res://assets/background.png" id="5_iywne"]
 [ext_resource type="Texture2D" uid="uid://tn061onf1iva" path="res://assets/background_explosion.png" id="6_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://c0ilvyxv6lmnr" path="res://assets/mask.png" id="6_p57ef"]
-[ext_resource type="Script" path="res://scripts/mask.gd" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://dhx2vskx3fu0j" path="res://scripts/mask.gd" id="7_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://vhm2lxd4k23r" path="res://assets/dead.png" id="8_gee14"]
 
 [sub_resource type="Animation" id="Animation_0tnpc"]
@@ -145,16 +145,18 @@ script = ExtResource("1_uwrxv")
 [node name="Visuals" type="Node2D" parent="." unique_id=1242763456]
 
 [node name="Face" type="Sprite2D" parent="Visuals" unique_id=603230960]
-position = Vector2(215, 308)
-scale = Vector2(0.87567574, 0.7450533)
+position = Vector2(279.00003, 732.99994)
+scale = Vector2(0.3951596, 0.33621454)
 texture = ExtResource("2_lnu2h")
 
 [node name="FaceAnimationPlayer" type="AnimationPlayer" parent="Visuals" unique_id=252142955]
 libraries/ = SubResource("AnimationLibrary_dinhu")
 
 [node name="Butt" type="Sprite2D" parent="Visuals" unique_id=1220192690]
-position = Vector2(970, 318)
+position = Vector2(1123.0001, -93)
+scale = Vector2(1.1214575, 1.1214575)
 texture = ExtResource("3_lbhrr")
+flip_h = true
 
 [node name="Fart" type="Sprite2D" parent="Visuals" unique_id=301606915]
 visible = false
@@ -163,24 +165,28 @@ scale = Vector2(0.52351487, 0.5)
 texture = ExtResource("4_lbhrr")
 
 [node name="BackgroundExplosion" type="Sprite2D" parent="Visuals" unique_id=882740511]
+visible = false
 z_index = -1
 position = Vector2(489.07483, 239.75)
 scale = Vector2(0.65209323, 0.6520933)
 texture = ExtResource("6_0tnpc")
 
-[node name="Background" type="Sprite2D" parent="Visuals" unique_id=398184542]
-z_index = -1
-position = Vector2(552, 284)
-texture = ExtResource("5_iywne")
-
 [node name="Mask" type="Sprite2D" parent="Visuals" unique_id=1697141931]
-position = Vector2(223, 980.0001)
+position = Vector2(317, 977)
 scale = Vector2(0.4273098, 0.5033966)
 texture = ExtResource("6_p57ef")
 script = ExtResource("7_u5sy4")
 
-[node name="ColorRect" type="ColorRect" parent="Visuals" unique_id=1455981526]
+[node name="Background" type="Sprite2D" parent="Visuals" unique_id=1659646248]
+modulate = Color(0.72357595, 0.72357595, 0.72357595, 0.30588236)
+self_modulate = Color(0.32026795, 0.32026795, 0.32026795, 1)
 z_index = -1
+position = Vector2(644, 349)
+texture = ExtResource("5_iywne")
+
+[node name="ColorRect" type="ColorRect" parent="Visuals" unique_id=1455981526]
+visible = false
+z_index = -6
 offset_right = 1277.0
 offset_bottom = 716.0
 color = Color(1, 0.7490196, 0.003921569, 1)
