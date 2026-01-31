@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://ctro1y3g75qdy"]
+
+[ext_resource type="Script" path="res://scripts/cool_transition.gd" id="1_nd18f"]
+[ext_resource type="Texture2D" uid="uid://bkxqxmm0fu3pk" path="res://assets/TransitionBackground.png" id="2_8vnfn"]
+[ext_resource type="Texture2D" uid="uid://ce4vwd0r5nv8s" path="res://assets/Vs.png" id="3_ix7cn"]
+[ext_resource type="Texture2D" uid="uid://cgrnxmkisv4dp" path="res://assets/face.png" id="4_bwq1t"]
+[ext_resource type="Texture2D" uid="uid://bbuxcsum7y6te" path="res://assets/butt.png" id="5_a2guu"]
+
+[node name="CoolTransition" type="Control" unique_id=863585627]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nd18f")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1288344999]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_8vnfn")
+expand_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=767976485]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="vs" type="TextureRect" parent="CenterContainer" unique_id=1960005690]
+custom_minimum_size = Vector2(230, 204)
+layout_mode = 2
+texture = ExtResource("3_ix7cn")
+expand_mode = 2
+
+[node name="Player" type="TextureRect" parent="." unique_id=573767149]
+layout_mode = 0
+offset_left = -511.0
+offset_top = 40.0
+offset_right = -264.4
+offset_bottom = 825.2
+texture = ExtResource("4_bwq1t")
+expand_mode = 4
+
+[node name="Butt" type="TextureRect" parent="." unique_id=941014572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2402.0
+offset_top = -144.00012
+offset_right = 2896.0
+offset_bottom = 740.9999
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.0716321
+texture = ExtResource("5_a2guu")
+flip_h = true
