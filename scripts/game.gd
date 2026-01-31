@@ -1,6 +1,7 @@
 extends Node2D
 
 signal throbbing_countdown
+signal almost_explode_countdown
 
 
 signal win
@@ -70,10 +71,23 @@ func set_throbbing_timer():
 	timer.one_shot = true
 	timer.timeout.connect(throbbing_emit)
 	timer.start()
-
+	
 func throbbing_emit():
 	print("Enabling THROBBING!")
 	emit_signal("throbbing_countdown") # custom signal for external use
+	
+func set_almost_explode_timer():
+	var timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 6
+	timer.one_shot = true
+	timer.timeout.connect(almost_explode_emit)
+	timer.start()
+
+func almost_explode_emit():
+	print("Enabling EXPLODING!")
+	emit_signal("almost_explode_countdown") # custom signal for external use
+
 
 func _input(event):
 	match state:
@@ -161,4 +175,5 @@ func next_level():
 func reset_all():
 	butt.reset_all()
 	set_throbbing_timer()
+	set_almost_explode_timer()
 	

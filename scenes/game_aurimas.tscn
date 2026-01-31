@@ -173,7 +173,7 @@ libraries/ = SubResource("AnimationLibrary_dinhu")
 z_index = 2
 position = Vector2(134, 851.00006)
 rotation = 0.49916416
-scale = Vector2(1.1850913, 1.07952)
+scale = Vector2(1.185, 1.08)
 texture = ExtResource("4_0mq0w")
 flip_v = true
 script = ExtResource("5_81f4r")
@@ -222,9 +222,9 @@ scale = Vector2(0.6712963, 0.6712963)
 texture = ExtResource("10_2epdk")
 
 [node name="But_BackgroundExplosion" type="Sprite2D" parent="Visuals" unique_id=637131173]
-visible = false
 position = Vector2(295.0766, 610.5)
-scale = Vector2(0.5400106, 0.5400106)
+rotation = 0.82728606
+scale = Vector2(0.53, 0.53)
 texture = ExtResource("11_6xv8d")
 
 [node name="UI" type="Control" parent="." unique_id=1348790825]

@@ -11,11 +11,19 @@ var UPPER_BUT_POSITION = Vector2(123.0, 793.0)
 var LOWER_BUT_POSITION = Vector2(134.0, 851.0)
 
 var but_movement_tween
+var but_rotation_tween
+var but_size_tween
+
 var explosion_movement_tween
+var explosion_color_tween
+var explosion_size_tween
+
 
 func _ready() -> void:
 	# Set timer connection to game
 	game.throbbing_countdown.connect(_on_throbing_countdown)
+	game.almost_explode_countdown.connect(_on_almost_explode_countdown)
+	
 	start_but_movement()
 
 func start_but_movement():
@@ -58,6 +66,58 @@ func _process(delta: float) -> void:
 
 func _on_throbing_countdown():
 	but_throbbing()
+	
+	
+func but_almost_explode() -> void:
+	but_explosion_visual.visible = true
+	
+	explosion_movement_tween = create_tween()
+	explosion_movement_tween.tween_property(but_explosion_visual, "modulate:a", 0.0, 0) # Fade out in 0.5 seconds
+	explosion_movement_tween.tween_interval(0.1)                           # Stay invisible for 0.2s
+	explosion_movement_tween.tween_property(but_explosion_visual, "modulate:a", 1.0, 0)  # Fade in in 0.5 seconds
+	explosion_movement_tween.tween_interval(0.1)                           # Stay visible for 0.2s
+	explosion_movement_tween.set_loops()    
+	
+	explosion_color_tween = create_tween()
+	explosion_color_tween.tween_property(but_explosion_visual, "modulate:b", 0.0, 0) # Fade out in 0.5 seconds
+	explosion_color_tween.tween_property(but_explosion_visual, "modulate:g", 0.0, 0) # Fade out in 0.5 seconds
+	explosion_color_tween.tween_interval(0.3)                           # Stay invisible for 0.2s
+	explosion_color_tween.tween_property(but_explosion_visual, "modulate:b", 1.0, 0)  # Fade in in 0.5 seconds
+	explosion_color_tween.tween_property(but_explosion_visual, "modulate:g", 1.0, 0)  # Fade in in 0.5 seconds
+	explosion_color_tween.tween_interval(0.1)                           # Stay visible for 0.2s
+	explosion_color_tween.set_loops()
+	
+	explosion_size_tween = create_tween()
+	explosion_size_tween.set_trans(Tween.TRANS_CUBIC)
+	explosion_size_tween.tween_property(but_explosion_visual, "scale", Vector2(1,1), 0.1)
+	explosion_size_tween.tween_property(but_explosion_visual, "scale", Vector2(0.4,0.4), 0.1)    
+	explosion_size_tween.set_loops()
+	
+	
+	but_movement_tween = create_tween()
+	but_movement_tween.set_trans(Tween.TRANS_CUBIC)
+	but_movement_tween.tween_property(self, "position", UPPER_BUT_POSITION + Vector2(10, 0), 0.1)
+	but_movement_tween.tween_property(self, "position", LOWER_BUT_POSITION + Vector2(-10, 0), 0.1)
+	but_movement_tween.set_loops()
+	
+	but_rotation_tween = create_tween()
+	but_rotation_tween.set_trans(Tween.TRANS_CUBIC)
+	but_rotation_tween.tween_property(self, "rotation", 0.35, 0.1)
+	but_rotation_tween.tween_property(self, "rotation", 0.5, 0.1)
+	but_rotation_tween.set_loops()
+	
+	but_size_tween = create_tween()
+	but_size_tween.set_trans(Tween.TRANS_CUBIC)
+	but_size_tween.tween_property(self, "scale", Vector2(1.3,1.1), 0.1)
+	but_size_tween.tween_property(self, "scale", Vector2(1.05,1), 0.1)
+	but_size_tween.set_loops()
+	
+	
+	
+	
+	
+func _on_almost_explode_countdown():
+	but_almost_explode()
 	
 	
 func reset_all():
