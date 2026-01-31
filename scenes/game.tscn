@@ -64,6 +64,7 @@ _data = {
 
 [sub_resource type="SystemFont" id="SystemFont_0tnpc"]
 font_names = PackedStringArray("Comic Sans MS")
+subpixel_positioning = 0
 
 [sub_resource type="Animation" id="Animation_trtic"]
 length = 0.001

@@ -14,10 +14,13 @@ func _ready():
 	#end_y = face.transform.get_origin()[1]
 	end_y = 400 # Temporary hardcoded value :)
 	position.y = START_Y
-	steps = game.REQUIRED_PRESSES
+	calculate_steps()
+	
+func calculate_steps():
+	var required_presses = game.required_presses
 	total_distance = START_Y - end_y
+	steps = required_presses
 	step_size = total_distance / float(steps)
-	print(step_size)
 
 func _input(event):
 	if event.is_action_pressed("press_x"):
