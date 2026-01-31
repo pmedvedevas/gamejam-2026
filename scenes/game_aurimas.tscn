@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lpsmjybijt2n" path="res://scripts/game.gd" id="1_2wss5"]
 [ext_resource type="Texture2D" uid="uid://dat7hiofdrcn4" path="res://assets/face.png" id="2_81f4r"]
+[ext_resource type="Script" uid="uid://cmvwhagp4ojm" path="res://scenes/face.gd" id="3_11of7"]
 [ext_resource type="Texture2D" uid="uid://vhm2lxd4k23r" path="res://assets/dead.png" id="3_oount"]
 [ext_resource type="Texture2D" uid="uid://dbvfpwmuffa4d" path="res://assets/butt.png" id="4_0mq0w"]
 [ext_resource type="Script" uid="uid://qie28k5q4q3v" path="res://scripts/butt.gd" id="5_81f4r"]
@@ -14,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://blfasr1ero26i" path="res://assets/background_explosion.png" id="11_6xv8d"]
 [ext_resource type="Texture2D" uid="uid://c01l0gjc2rymq" path="res://assets/new_assets/background/Press X To Avoid Fart.png" id="12_s26e8"]
 [ext_resource type="Texture2D" uid="uid://cfgrjxslggyww" path="res://assets/new_assets/background/Group 4.png" id="13_7xqed"]
+[ext_resource type="Script" path="res://scripts/timing_meter.gd" id="15_pvlb7"]
+[ext_resource type="Texture2D" uid="uid://bgoe6ggqlr4wp" path="res://assets/under.png" id="16_11of7"]
+[ext_resource type="Texture2D" uid="uid://b3hge1qmgs2d8" path="res://assets/progress.png" id="17_bjdo7"]
+[ext_resource type="Texture2D" uid="uid://h23cuno7ah3k" path="res://assets/arrow.png" id="18_qc701"]
 
 [sub_resource type="Animation" id="Animation_0tnpc"]
 length = 0.001
@@ -159,13 +164,14 @@ position = Vector2(958, 553.0292)
 scale = Vector2(0.23519874, 0.22715986)
 texture = ExtResource("2_81f4r")
 flip_h = true
+script = ExtResource("3_11of7")
 
 [node name="FaceAnimationPlayer" type="AnimationPlayer" parent="Visuals" unique_id=252142955]
 libraries/ = SubResource("AnimationLibrary_dinhu")
 
 [node name="Butt" type="Sprite2D" parent="Visuals" unique_id=1220192690]
 z_index = 2
-position = Vector2(99.24642, 906.85004)
+position = Vector2(134, 851.00006)
 rotation = 0.49916416
 scale = Vector2(1.1850913, 1.07952)
 texture = ExtResource("4_0mq0w")
@@ -359,3 +365,27 @@ z_index = 1
 position = Vector2(1212, 349)
 scale = Vector2(0.13773966, 0.13773966)
 texture = ExtResource("13_7xqed")
+
+[node name="TimingMeter" type="Control" parent="." unique_id=1303226585]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 104.0
+offset_top = 154.0
+offset_right = 808.0
+offset_bottom = 277.0
+script = ExtResource("15_pvlb7")
+
+[node name="Bar" type="TextureProgressBar" parent="TimingMeter" unique_id=545380604]
+layout_mode = 1
+offset_right = 720.0
+offset_bottom = 120.0
+value = 20.0
+fill_mode = 6
+texture_under = ExtResource("16_11of7")
+texture_progress = ExtResource("17_bjdo7")
+
+[node name="Arrow" type="TextureRect" parent="TimingMeter" unique_id=324755716]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_qc701")

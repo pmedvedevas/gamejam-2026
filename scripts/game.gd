@@ -4,7 +4,7 @@ signal win
 signal lose
 signal update_ui(presses: int, required: int, time_left: float)
 
-const TIME_LIMIT := 5.0
+const TIME_LIMIT := 15.0
 
 var press_count := 0
 var time_left := TIME_LIMIT

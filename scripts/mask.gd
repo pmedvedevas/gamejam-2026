@@ -3,6 +3,7 @@ extends Node2D
 @onready var game := get_tree().current_scene
 @onready var face: Sprite2D = $"../Face"
 @onready var timing_meter = $"../../TimingMeter"
+@onready var step_position = 833.249
 
 const START_Y := 920.0
 
@@ -28,11 +29,18 @@ func _input(event):
 		lift_mask()
 
 func lift_mask():
-	position.y -= step_size
-
-	if position.y < end_y:
+	# Move this node to (400, 400) over 1 second
+	if position.y <= end_y:
 		position.y = end_y
+		return
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	step_position -= step_size
+	tween.tween_property(self, "position:y", step_position, 0.2)
+
+	
 
 func set_initial_position():
 	position.y = START_Y
+	step_position = START_Y
 	visible = true
