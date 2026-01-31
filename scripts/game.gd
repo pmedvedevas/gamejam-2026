@@ -123,6 +123,7 @@ func on_win():
 	fart.visible = true
 	restart_animation_player.play("flash")
 	emit_signal("win")
+	butt.kill_all_tweens()
 	
 
 func on_lose():
@@ -134,7 +135,7 @@ func on_lose():
 	mask.visible = false
 	restart_animation_player.play("flash")
 	emit_signal("lose")
-	reset_all()
+	butt.kill_all_tweens()
 	
 
 func start_level():

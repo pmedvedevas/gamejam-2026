@@ -69,3 +69,12 @@ func reset_all():
 		
 	game.throbbing_countdown.connect(_on_throbing_countdown)
 	start_but_movement()
+	
+func kill_all_tweens():
+	but_explosion_visual.visible = false
+	if explosion_movement_tween:
+		explosion_movement_tween.kill()
+		
+	but_movement_tween
+	if but_movement_tween:
+		but_movement_tween.kill()

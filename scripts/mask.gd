@@ -36,6 +36,8 @@ func lift_mask():
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC)
 	step_position -= step_size
+	if step_position <= end_y:
+		step_position = end_y
 	tween.tween_property(self, "position:y", step_position, 0.2)
 
 	

@@ -296,7 +296,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 320
+theme_override_constants/separation = 79
+
+[node name="Separator2" type="Control" parent="UI/RestartVBoxContainer" unique_id=1309451016]
+layout_mode = 2
+
+[node name="PressXToAvoidFart" type="Label" parent="UI/RestartVBoxContainer" unique_id=297706618]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 36
+theme_override_fonts/font = SubResource("SystemFont_0tnpc")
+theme_override_font_sizes/font_size = 83
+text = "Press X To Avoid Fart"
+horizontal_alignment = 1
 
 [node name="Separator" type="Control" parent="UI/RestartVBoxContainer" unique_id=659279103]
 layout_mode = 2
@@ -304,13 +317,17 @@ layout_mode = 2
 [node name="RestartLabel" type="Label" parent="UI/RestartVBoxContainer" unique_id=1959803900]
 visible = false
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 36
 theme_override_fonts/font = SubResource("SystemFont_0tnpc")
 theme_override_font_sizes/font_size = 20
 text = "Press Enter to Restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PressXToAvoidFart" type="Sprite2D" parent="UI/RestartVBoxContainer" unique_id=43109625]
+[node name="PressXToAvoidFart_disabled" type="Sprite2D" parent="UI/RestartVBoxContainer" unique_id=43109625]
+visible = false
 z_index = 2
 position = Vector2(681, 98.99997)
 scale = Vector2(0.17963387, 0.17963387)
