@@ -4,11 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://dat7hiofdrcn4" path="res://assets/face.png" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://dbvfpwmuffa4d" path="res://assets/butt.png" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://jn8jqrdc3hj" path="res://assets/fart.png" id="4_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://ddi6ipflkfv8c" path="res://assets/background.png" id="5_iywne"]
-[ext_resource type="Texture2D" uid="uid://tn061onf1iva" path="res://assets/background_explosion.png" id="6_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://c0ilvyxv6lmnr" path="res://assets/mask.png" id="6_p57ef"]
+[ext_resource type="Texture2D" uid="uid://blfasr1ero26i" path="res://assets/background_explosion.png" id="6_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://bxvvsjony5uf8" path="res://assets/new_assets/mask/mask.png" id="6_dinhu"]
+[ext_resource type="Texture2D" uid="uid://b8y4yylq0gro" path="res://assets/new_assets/fart/fart_regular.png" id="6_kvuet"]
 [ext_resource type="Script" uid="uid://dhx2vskx3fu0j" path="res://scripts/mask.gd" id="7_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://vhm2lxd4k23r" path="res://assets/dead.png" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://we3f76dv8fvf" path="res://assets/new_assets/background/Desktop - 3.png" id="10_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://dkjllr1ac1i1a" path="res://assets/new_assets/background/Desktop - 5.png" id="10_vtaks"]
+[ext_resource type="Texture2D" uid="uid://cfgrjxslggyww" path="res://assets/new_assets/background/Group 4.png" id="11_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://c01l0gjc2rymq" path="res://assets/new_assets/background/Press X To Avoid Fart.png" id="12_dinhu"]
 
 [sub_resource type="Animation" id="Animation_0tnpc"]
 length = 0.001
@@ -149,45 +153,45 @@ script = ExtResource("1_uwrxv")
 [node name="Visuals" type="Node2D" parent="." unique_id=1242763456]
 
 [node name="Face" type="Sprite2D" parent="Visuals" unique_id=603230960]
-position = Vector2(279.00003, 732.99994)
-scale = Vector2(0.3951596, 0.33621454)
+z_index = 2
+position = Vector2(958, 553.0292)
+scale = Vector2(0.23519874, 0.22715986)
 texture = ExtResource("2_lnu2h")
+flip_h = true
 
 [node name="FaceAnimationPlayer" type="AnimationPlayer" parent="Visuals" unique_id=252142955]
 libraries/ = SubResource("AnimationLibrary_dinhu")
 
 [node name="Butt" type="Sprite2D" parent="Visuals" unique_id=1220192690]
-position = Vector2(1123.0001, -93)
-scale = Vector2(1.1214575, 1.1214575)
+z_index = 2
+position = Vector2(99.24642, 906.85004)
+rotation = 0.49916416
+scale = Vector2(1.1850913, 1.07952)
 texture = ExtResource("3_lbhrr")
-flip_h = true
+flip_v = true
 
-[node name="Fart" type="Sprite2D" parent="Visuals" unique_id=301606915]
+[node name="Fart_disabled" type="Sprite2D" parent="Visuals" unique_id=301606915]
 visible = false
 z_index = 1
 position = Vector2(596, 342)
 scale = Vector2(0.52351487, 0.5)
 texture = ExtResource("4_lbhrr")
 
-[node name="BackgroundExplosion" type="Sprite2D" parent="Visuals" unique_id=882740511]
+[node name="Fart" type="Sprite2D" parent="Visuals" unique_id=301639459]
 visible = false
-z_index = -1
-position = Vector2(489.07483, 239.75)
-scale = Vector2(0.65209323, 0.6520933)
-texture = ExtResource("6_0tnpc")
+z_index = 1
+position = Vector2(585, 412)
+rotation = -1.3439035
+scale = Vector2(0.30598593, 0.30598593)
+texture = ExtResource("6_kvuet")
 
 [node name="Mask" type="Sprite2D" parent="Visuals" unique_id=1697141931]
-position = Vector2(317, 977)
-scale = Vector2(0.4273098, 0.5033966)
-texture = ExtResource("6_p57ef")
+z_index = 2
+position = Vector2(949.04706, 833.24884)
+scale = Vector2(0.24711514, 0.2387894)
+texture = ExtResource("6_dinhu")
+flip_h = true
 script = ExtResource("7_u5sy4")
-
-[node name="Background" type="Sprite2D" parent="Visuals" unique_id=1659646248]
-modulate = Color(0.72357595, 0.72357595, 0.72357595, 0.30588236)
-self_modulate = Color(0.32026795, 0.32026795, 0.32026795, 1)
-z_index = -1
-position = Vector2(644, 349)
-texture = ExtResource("5_iywne")
 
 [node name="ColorRect" type="ColorRect" parent="Visuals" unique_id=1455981526]
 visible = false
@@ -195,6 +199,24 @@ z_index = -6
 offset_right = 1277.0
 offset_bottom = 716.0
 color = Color(1, 0.7490196, 0.003921569, 1)
+
+[node name="Desktop5" type="Sprite2D" parent="Visuals" unique_id=175800379]
+z_index = -1
+position = Vector2(643.5, 363.00003)
+scale = Vector2(0.6682292, 0.66111106)
+texture = ExtResource("10_vtaks")
+
+[node name="Desktop3" type="Sprite2D" parent="Visuals" unique_id=206722694]
+visible = false
+z_index = -1
+position = Vector2(643.44446, 362.5)
+scale = Vector2(0.6712963, 0.6712963)
+texture = ExtResource("10_kvpfn")
+
+[node name="BackgroundExplosion2" type="Sprite2D" parent="Visuals" unique_id=637131173]
+position = Vector2(295.0766, 610.5)
+scale = Vector2(0.5400106, 0.5400106)
+texture = ExtResource("6_0tnpc")
 
 [node name="UI" type="Control" parent="." unique_id=1348790825]
 z_index = 100
@@ -216,6 +238,7 @@ theme_override_constants/separation = 40
 layout_mode = 2
 
 [node name="TimerLabel" type="Label" parent="UI/TimerVBoxContainer" unique_id=1402295979]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0.039215688, 1)
 theme_override_fonts/font = SubResource("SystemFont_0tnpc")
@@ -225,6 +248,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ResultVBoxContainer" type="VBoxContainer" parent="UI" unique_id=1573439310]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -237,6 +261,7 @@ theme_override_constants/separation = 140
 layout_mode = 2
 
 [node name="ResultLabel" type="Label" parent="UI/ResultVBoxContainer" unique_id=1834122964]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_0tnpc")
 theme_override_font_sizes/font_size = 25
@@ -265,6 +290,12 @@ text = "Press Enter to Restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PressXToAvoidFart" type="Sprite2D" parent="UI/RestartVBoxContainer" unique_id=43109625]
+z_index = 2
+position = Vector2(681, 98.99997)
+scale = Vector2(0.17963387, 0.17963387)
+texture = ExtResource("12_dinhu")
+
 [node name="RestartAnimationPlayer" type="AnimationPlayer" parent="UI/RestartVBoxContainer" unique_id=41207070]
 libraries/ = SubResource("AnimationLibrary_rysoc")
 
@@ -281,6 +312,7 @@ theme_override_constants/separation = 520
 layout_mode = 2
 
 [node name="InstructionLabel" type="Label" parent="UI/InstructionsVBoxContainer" unique_id=494868659]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_0tnpc")
 theme_override_font_sizes/font_size = 25
@@ -289,6 +321,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PressVBoxContainer" type="VBoxContainer" parent="UI" unique_id=132015833]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -307,3 +340,9 @@ theme_override_font_sizes/font_size = 40
 text = "X / Y"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Group4" type="Sprite2D" parent="." unique_id=1837519071]
+z_index = 1
+position = Vector2(1212, 349)
+scale = Vector2(0.13773966, 0.13773966)
+texture = ExtResource("11_kvpfn")

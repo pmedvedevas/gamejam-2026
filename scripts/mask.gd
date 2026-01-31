@@ -12,7 +12,7 @@ var step_size
 
 func _ready():
 	#end_y = face.transform.get_origin()[1]
-	end_y = 400 # Temporary hardcoded value :)
+	end_y = 360 # Temporary hardcoded value :)
 	position.y = START_Y
 	calculate_steps()
 	
