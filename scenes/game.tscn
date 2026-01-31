@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://lpsmjybijt2n" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dat7hiofdrcn4" path="res://assets/face.png" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://dbvfpwmuffa4d" path="res://assets/butt.png" id="3_lbhrr"]
+[ext_resource type="Script" uid="uid://cmvwhagp4ojm" path="res://scenes/face.gd" id="3_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://jn8jqrdc3hj" path="res://assets/fart.png" id="4_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://tn061onf1iva" path="res://assets/background_explosion.png" id="6_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://blfasr1ero26i" path="res://assets/background_explosion.png" id="6_0tnpc"]
+[ext_resource type="Script" uid="uid://qie28k5q4q3v" path="res://scripts/butt.gd" id="6_264po"]
 [ext_resource type="Texture2D" uid="uid://bxvvsjony5uf8" path="res://assets/new_assets/mask/mask.png" id="6_dinhu"]
 [ext_resource type="Texture2D" uid="uid://b8y4yylq0gro" path="res://assets/new_assets/fart/fart_regular.png" id="6_kvuet"]
 [ext_resource type="Script" uid="uid://dhx2vskx3fu0j" path="res://scripts/mask.gd" id="7_u5sy4"]
@@ -13,9 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://dkjllr1ac1i1a" path="res://assets/new_assets/background/Desktop - 5.png" id="10_vtaks"]
 [ext_resource type="Texture2D" uid="uid://c01l0gjc2rymq" path="res://assets/new_assets/background/Press X To Avoid Fart.png" id="12_dinhu"]
 [ext_resource type="Script" path="res://scripts/timing_meter.gd" id="14_trtic"]
-[ext_resource type="Texture2D" uid="uid://b17ub0uqlsa21" path="res://assets/under.png" id="15_ca42v"]
+[ext_resource type="Texture2D" uid="uid://bgoe6ggqlr4wp" path="res://assets/under.png" id="15_ca42v"]
 [ext_resource type="Texture2D" uid="uid://h23cuno7ah3k" path="res://assets/arrow.png" id="16_ca42v"]
-[ext_resource type="Texture2D" uid="uid://0prxd5bi0jn6" path="res://assets/progress.png" id="16_rysoc"]
+[ext_resource type="Texture2D" uid="uid://b3hge1qmgs2d8" path="res://assets/progress.png" id="16_rysoc"]
 
 [sub_resource type="Animation" id="Animation_0tnpc"]
 length = 0.001
@@ -161,6 +163,7 @@ position = Vector2(958, 553.0292)
 scale = Vector2(0.23519874, 0.22715986)
 texture = ExtResource("2_lnu2h")
 flip_h = true
+script = ExtResource("3_ssvqc")
 
 [node name="FaceAnimationPlayer" type="AnimationPlayer" parent="Visuals" unique_id=252142955]
 libraries/ = SubResource("AnimationLibrary_dinhu")
@@ -172,6 +175,7 @@ rotation = 0.49916416
 scale = Vector2(1.1850913, 1.07952)
 texture = ExtResource("3_lbhrr")
 flip_v = true
+script = ExtResource("6_264po")
 
 [node name="Fart_disabled" type="Sprite2D" parent="Visuals" unique_id=301606915]
 visible = false
