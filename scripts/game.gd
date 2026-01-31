@@ -86,6 +86,7 @@ func restart_game():
 
 	face_animation_player.play("live")
 	restart_animation_player.play("disappear")
+	mask.calculate_steps()
 	mask.set_initial_position()
 
 	update_ui_labels()
