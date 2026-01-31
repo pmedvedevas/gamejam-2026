@@ -172,8 +172,8 @@ libraries/ = SubResource("AnimationLibrary_dinhu")
 [node name="Butt" type="Sprite2D" parent="Visuals" unique_id=1220192690]
 z_index = 2
 position = Vector2(134, 851.00006)
-rotation = 0.49916416
-scale = Vector2(1.185, 1.08)
+rotation = 0.34906584
+scale = Vector2(1.2, 1.1)
 texture = ExtResource("4_0mq0w")
 flip_v = true
 script = ExtResource("5_81f4r")

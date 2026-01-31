@@ -7,8 +7,8 @@ extends Sprite2D
 @onready var throbing_time = game.TIME_LIMIT - 3
 # Called when the node enters the scene tree for the first time.
 
-var UPPER_BUT_POSITION = Vector2(123.0, 793.0)
-var LOWER_BUT_POSITION = Vector2(134.0, 851.0)
+var UPPER_BUT_POSITION = Vector2(123.0, 820.0)
+var LOWER_BUT_POSITION = Vector2(144.0, 851.0)
 
 var but_movement_tween
 var but_rotation_tween
@@ -119,10 +119,18 @@ func but_almost_explode() -> void:
 func _on_almost_explode_countdown():
 	but_almost_explode()
 	
+func reset_starting_values():
+	but_explosion_visual.visible = false
+	
+	but_explosion_visual.modulate.b = 1
+	but_explosion_visual.modulate.g = 1
+	
+	self.scale = Vector2(1.2, 1.1)
+	self.rotation = 0.349
+	self.position = Vector2(134.0,851.0)
 	
 func reset_all():
-	start_but_movement()
-	but_explosion_visual.visible = false
+	reset_starting_values()
 
 	if explosion_movement_tween:
 		explosion_movement_tween.kill()
@@ -131,10 +139,22 @@ func reset_all():
 	start_but_movement()
 	
 func kill_all_tweens():
-	but_explosion_visual.visible = false
+	reset_starting_values()
+	
 	if explosion_movement_tween:
 		explosion_movement_tween.kill()
 		
-	but_movement_tween
+	if explosion_color_tween:
+		explosion_color_tween.kill()
+		
+	if explosion_size_tween:
+		explosion_size_tween.kill()
+		
 	if but_movement_tween:
 		but_movement_tween.kill()
+		
+	if but_rotation_tween:
+		but_rotation_tween.kill()
+		
+	if but_size_tween:
+		but_size_tween.kill()
