@@ -250,7 +250,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 360
+theme_override_constants/separation = 320
 
 [node name="Separator" type="Control" parent="UI/RestartVBoxContainer" unique_id=659279103]
 layout_mode = 2
