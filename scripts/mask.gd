@@ -31,3 +31,4 @@ func lift_mask():
 
 func set_initial_position():
 	position.y = START_Y
+	visible = true

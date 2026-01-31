@@ -62,34 +62,37 @@ _data = {
 &"live": SubResource("Animation_kvpfn")
 }
 
-[sub_resource type="Animation" id="Animation_gee14"]
+[sub_resource type="SystemFont" id="SystemFont_0tnpc"]
+font_names = PackedStringArray("Comic Sans MS")
+
+[sub_resource type="Animation" id="Animation_trtic"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RestartLabel:theme_override_font_sizes/font_size")
+tracks/0/path = NodePath("RestartLabel:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [100]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RestartLabel:visible")
+tracks/1/path = NodePath("RestartLabel:theme_override_font_sizes/font_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [20]
 }
 
-[sub_resource type="Animation" id="Animation_kvuet"]
+[sub_resource type="Animation" id="Animation_ir15t"]
 resource_name = "disappear"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -104,39 +107,39 @@ tracks/0/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_dinhu"]
+[sub_resource type="Animation" id="Animation_ca42v"]
 resource_name = "flash"
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RestartLabel:theme_override_font_sizes/font_size")
-tracks/0/interp = 2
+tracks/0/path = NodePath("RestartLabel:visible")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [100, 110]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RestartLabel:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RestartLabel:theme_override_font_sizes/font_size")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [50, 60]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvuet"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rysoc"]
 _data = {
-&"RESET": SubResource("Animation_gee14"),
-&"disappear": SubResource("Animation_kvuet"),
-&"flash": SubResource("Animation_dinhu")
+&"RESET": SubResource("Animation_trtic"),
+&"disappear": SubResource("Animation_ir15t"),
+&"flash": SubResource("Animation_ca42v")
 }
 
 [node name="Game" type="Node2D" unique_id=1918586694]
@@ -160,6 +163,7 @@ flip_h = true
 
 [node name="Fart" type="Sprite2D" parent="Visuals" unique_id=301606915]
 visible = false
+z_index = 1
 position = Vector2(596, 342)
 scale = Vector2(0.52351487, 0.5)
 texture = ExtResource("4_lbhrr")
@@ -191,56 +195,114 @@ offset_right = 1277.0
 offset_bottom = 716.0
 color = Color(1, 0.7490196, 0.003921569, 1)
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1954000236]
+[node name="UI" type="Control" parent="." unique_id=1348790825]
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
 
-[node name="TimerLabel" type="Label" parent="UI" unique_id=745904887]
-offset_left = 544.0
-offset_top = 25.0
-offset_right = 659.0
-offset_bottom = 80.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
+[node name="TimerVBoxContainer" type="VBoxContainer" parent="UI" unique_id=184698677]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Separator" type="Control" parent="UI/TimerVBoxContainer" unique_id=124533418]
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="UI/TimerVBoxContainer" unique_id=1402295979]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0.039215688, 1)
+theme_override_fonts/font = SubResource("SystemFont_0tnpc")
+theme_override_font_sizes/font_size = 50
 text = "Timer"
-
-[node name="PressLabel" type="Label" parent="UI" unique_id=392290548]
-offset_left = 554.0
-offset_top = 563.0
-offset_right = 624.0
-offset_bottom = 605.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "X / Y"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="InstructionLabel" type="Label" parent="UI" unique_id=1488783823]
-offset_left = 430.0
-offset_top = 513.0
-offset_right = 793.0
-offset_bottom = 567.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Press X to avoid the fart!"
-horizontal_alignment = 1
+[node name="ResultVBoxContainer" type="VBoxContainer" parent="UI" unique_id=1573439310]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 140
 
-[node name="ResultLabel" type="Label" parent="UI" unique_id=1141381911]
-offset_left = 477.0
-offset_top = 111.0
-offset_right = 759.0
-offset_bottom = 171.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 27
+[node name="Separator" type="Control" parent="UI/ResultVBoxContainer" unique_id=251872958]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="UI/ResultVBoxContainer" unique_id=1834122964]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_0tnpc")
+theme_override_font_sizes/font_size = 25
 text = "Will you be farted on?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="RestartLabel" type="Label" parent="UI" unique_id=1867899397]
+[node name="RestartVBoxContainer" type="VBoxContainer" parent="UI" unique_id=8892445]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 360
+
+[node name="Separator" type="Control" parent="UI/RestartVBoxContainer" unique_id=659279103]
+layout_mode = 2
+
+[node name="RestartLabel" type="Label" parent="UI/RestartVBoxContainer" unique_id=1959803900]
 visible = false
-offset_left = 95.0
-offset_top = 249.0
-offset_right = 1144.0
-offset_bottom = 522.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_0tnpc")
+theme_override_font_sizes/font_size = 20
 text = "Press Enter to Restart"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="RestartAnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=1240530792]
-libraries/ = SubResource("AnimationLibrary_kvuet")
+[node name="RestartAnimationPlayer" type="AnimationPlayer" parent="UI/RestartVBoxContainer" unique_id=41207070]
+libraries/ = SubResource("AnimationLibrary_rysoc")
+
+[node name="InstructionsVBoxContainer" type="VBoxContainer" parent="UI" unique_id=578865057]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 520
+
+[node name="Separator" type="Control" parent="UI/InstructionsVBoxContainer" unique_id=1709395619]
+layout_mode = 2
+
+[node name="InstructionLabel" type="Label" parent="UI/InstructionsVBoxContainer" unique_id=494868659]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_0tnpc")
+theme_override_font_sizes/font_size = 25
+text = "Press X to avoid the fart!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PressVBoxContainer" type="VBoxContainer" parent="UI" unique_id=132015833]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 600
+
+[node name="Separator" type="Control" parent="UI/PressVBoxContainer" unique_id=1626367510]
+layout_mode = 2
+
+[node name="PressLabel" type="Label" parent="UI/PressVBoxContainer" unique_id=827162941]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_0tnpc")
+theme_override_font_sizes/font_size = 40
+text = "X / Y"
+horizontal_alignment = 1
+vertical_alignment = 1

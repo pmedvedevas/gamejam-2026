@@ -13,16 +13,17 @@ var press_count := 0
 var time_left := TIME_LIMIT
 var running := true
 
-@onready var timer_label: Label = $UI/TimerLabel
-@onready var press_label: Label = $UI/PressLabel
-@onready var instruction_label: Label = $UI/InstructionLabel
-@onready var result_label: Label = $UI/ResultLabel
+@onready var timer_label: Label = $UI/TimerVBoxContainer/TimerLabel
+@onready var result_label: Label = $UI/ResultVBoxContainer/ResultLabel
+@onready var restart_label: Label = $UI/RestartVBoxContainer/RestartLabel
+@onready var instruction_label: Label = $UI/InstructionsVBoxContainer/InstructionLabel
+@onready var press_label: Label = $UI/PressVBoxContainer/PressLabel
 
 @onready var fart: Sprite2D = $Visuals/Fart
 @onready var face: Sprite2D = $Visuals/Face
 
 @onready var face_animation_player: AnimationPlayer = $Visuals/FaceAnimationPlayer
-@onready var restart_animation_player: AnimationPlayer = $UI/RestartAnimationPlayer
+@onready var restart_animation_player: AnimationPlayer = $UI/RestartVBoxContainer/RestartAnimationPlayer
 
 @onready var mask: Sprite2D = $Visuals/Mask
 
